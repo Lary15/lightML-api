@@ -15,4 +15,4 @@ api = Api(app)
 api.add_resource(Peripherals, "/peripherals", resource_class_kwargs={'repo': repo})
 
 if __name__ == '__main__':
-  app.run()
+  app.run(host='0.0.0.0')
