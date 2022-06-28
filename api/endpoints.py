@@ -15,5 +15,4 @@ class Peripherals(Resource):
     return "OK"
 
   def get(self)  -> Response:
-    print(self.repo.list())
     return self.repo.list()
