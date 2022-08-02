@@ -7,7 +7,9 @@ class PeripheralsReport:
     ldr_1: int = 0
     ldr_2: int = 0
     temp: float = 0.0
+    hum: float = 0.0
     mic: float = 0.0
     led_on: bool = False
     led_color: str = "unknown"
+    led_dimmer: int = 0
     timestamp: int = 0
