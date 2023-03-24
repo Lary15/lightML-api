@@ -15,3 +15,9 @@ class TinyDBRepository(AbstractRepository):
 
   def list(self):
     return self.db.all()
+
+  def query_by_epoch(self, start: int, end: int) -> dict:
+    Report = Query()
+
+    is_in_interval = lambda epoch: start <= epoch <= end
+    return self.db.search(Report.timestamp.test(is_in_interval))

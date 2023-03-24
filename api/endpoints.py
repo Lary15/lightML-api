@@ -14,5 +14,11 @@ class Peripherals(Resource):
     save_report(report, self.repo)
     return "OK"
 
-  def get(self)  -> Response:
-    return self.repo.list()
+  def get(self, start=None, end=None)  -> Response:
+    if request.args:
+      if request.args["start"] and request.args["end"]:
+        return self.repo.query_by_epoch(int(request.args["start"]) , int(request.args["end"]))
+      else: 
+        return "Erro: argumentos incorretos para query"
+    else:
+      return self.repo.list()
