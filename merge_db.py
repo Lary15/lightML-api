@@ -10,6 +10,10 @@ df2 = pd.DataFrame(db_content2)
 
 df = pd.concat([df1, df2], sort=False)
 
+df = df[df["temp"]>=0]
+df = df[df["hum"]>=0]
+df = df[df["mic"]>=0]
+
 df.to_json("df_pd.json", orient="records")
 
 j = open('df_pd.json',)
